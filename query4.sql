@@ -365,9 +365,32 @@
 -- GROUP BY salary
 -- HAVING user_count > 1;
 
-SELECT gender,
-COUNT(*) AS user_count, 
-AVG(salary) AS avg_salary
-FROM users
-GROUP BY gender
-HAVING user_count > 5 AND  avg_salary > 60000;
+-- SELECT gender,
+-- COUNT(*) AS user_count, 
+-- AVG(salary) AS avg_salary
+-- FROM users
+-- GROUP BY gender
+-- HAVING user_count > 5 AND  avg_salary > 60000;
+
+SELECT name, 
+LENGTH(name) as name_length
+FROM users;
+
+SELECT name, 
+UPPER(name) as upper_case
+FROM users;
+
+SELECT name, 
+LOWER(name) as lower_case
+FROM users;
+
+SELECT name,
+CONCAT(name,'<',email,'>') as user_contact
+FROM users;
+
+
+SELECT name, 
+UPPER(name) as upper_case,
+LOWER(name) as lower_case, 
+LENGTH(name) as name_length
+FROM users;
