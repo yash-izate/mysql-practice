@@ -124,6 +124,250 @@
 -- UNION ALL
 -- SELECT name from admin_users;
 
-SELECT * FROM users;
-SELECT name, email, salary FROM users;
+-- SELECT * FROM users;
+-- SELECT name, email, salary FROM users;
 
+-- SELECT * FROM users
+-- WHERE salary > 60000;
+
+-- SELECT * FROM users
+-- WHERE gender = 'Female' AND salary > 60000;
+
+-- SELECT * FROM users
+-- WHERE salary BETWEEN 55000 AND 70000;
+
+-- UPDATE addresses
+-- SET city = NULL 
+-- WHERE id = 14;
+-- SELECT * FROM addresses; 
+
+-- SELECT users.name, addresses.city
+-- FROM users
+-- JOIN addresses
+-- ON userS.id = addresses.user_id
+-- WHERE addresses.city IS NULL;
+
+-- SELECT * FROM users
+-- WHERE name LIKE 'A%';
+
+-- SELECT * FROM users
+-- WHERE name LIKE '%a';
+
+-- SELECT * FROM users
+-- WHERE name LIKE '%ya%';
+
+-- SELECT * FROM users
+-- WHERE gender IN ('Male', 'Female');
+
+-- SELECT * FROM users
+-- WHERE gender = 'Female' AND salary >= 60000
+-- ORDER BY salary DESC
+-- LIMIT 3;
+
+-- UPDATE users
+-- SET salary = salary + 5000
+-- WHERE salary < 60000;
+-- SELECT * FROM users;
+
+-- UPDATE users
+-- SET salary = 55000
+-- WHERE name = 'Ishaan';
+-- SELECT * FROM users;
+
+-- SELECT * FROM users
+-- WHERE id = 25;
+
+-- DELETE FROM users
+-- WHERE id = 25;
+-- SELECT * FROM users;
+
+-- SELECT  addresses.user_id, users.name, users.email, addresses.street, addresses.city, addresses.state
+-- FROM users
+-- JOIN addresses
+-- ON users.id = addresses.user_id; 
+
+-- SELECT  addresses.user_id, users.name, users.email, addresses.street, addresses.city, addresses.state
+-- FROM users
+-- LEFT JOIN addresses
+-- ON users.id = addresses.user_id; 
+
+-- DESCRIBE users;
+-- ALTER TABLE users
+-- MODIFY COLUMN name VARCHAR(50) NOT NULL;
+
+-- ALTER TABLE users
+-- DROP INDEX unique_name;
+
+-- SHOW CREATE TABLE users;
+-- DESCRIBE users;
+
+-- SHOW INDEX FROM users;
+
+-- SELECT COUNT(*) FROM users;
+
+-- SELECT COUNT(*) FROM users
+-- WHERE gender = 'Female';
+
+-- SELECT MIN(salary) AS min_salary,
+-- MAX(salary) AS max_salary
+-- FROM users;
+
+-- SELECT SUM(salary) AS total_payoff
+-- FROM users;
+
+-- SELECT AVG(salary) AS avg_salary
+-- FROM users;
+
+-- SELECT gender, AVG(salary) as avg_salary
+-- FROM users
+-- GROUP BY gender;
+
+-- SELECT name, LENGTH(name) as len_name
+-- FROM users
+
+-- SELECT name,
+-- UPPER(name) as uppercase_name
+-- FROM users;
+
+-- SELECT name,
+-- LOWER(name) as lowercase_name
+-- FROM users;
+
+-- SELECT id, name,
+-- UPPER(name) as uppercase,
+-- LOWER(name) as lowercase,
+-- LENGTH(name) as name_length
+-- FROM users;
+
+-- SELECT id, 
+-- CONCAT(name,'<',email,'>') AS user_contact
+-- FROM users;
+
+-- SELECT NOW();
+
+-- SELECT name,
+-- DAYNAME(dob) as birth_day,
+-- DAY(dob) as birth_date,
+-- MONTH(dob) as birth_month,
+-- YEAR(dob) as birth_year
+-- FROM users; 
+
+-- SELECT name,
+-- DATEDIFF(CURDATE(), dob) AS days_lived
+-- FROM users;
+
+-- SELECT name,
+-- TIMESTAMPDIFF(YEAR, dob, CURDATE())
+-- AS age
+-- FROM users;
+
+-- SELECT salary,
+-- ROUND(salary) AS rounded,
+-- FLOOR(salary) AS floored,
+-- CEIL(salary) AS ceiled
+-- FROM users;
+
+-- SELECT id,
+-- MOD(id, 2) AS remainder
+-- FROM users;
+
+-- SELECT name, gender,
+-- IF(gender = 'Female', 'Yes', 'No')
+-- AS is_female
+-- FROM users;
+
+-- SET AUTOCOMMIT = 0;
+-- DELETE FROM users
+-- WHERE id = 6;
+
+-- SELECT COUNT(*) AS total_users
+-- FROM users;
+
+-- SELECT COUNT(*) AS total_females
+-- FROM users
+-- WHERE gender = 'Female';
+
+-- SELECT SUM(salary) AS total_salary
+-- FROM users;
+
+-- SELECT AVG(salary) as avg_salary
+-- FROM users;
+
+-- SELECT MIN(salary) as min_salary
+-- FROM users; 
+
+-- SELECT MAX(salary) as max_salary
+-- FROM users;
+
+-- SELECT MAX(salary) as maximum_salary,
+-- MIN(salary) as minimum_salary
+-- FROM users;
+
+-- SELECT SUM(salary) as salary_females
+-- FROM users
+-- WHERE gender = 'Female';
+
+-- SELECT AVG(salary) as avg_salary_males
+-- FROM users
+-- WHERE gender = 'Male';
+
+-- SELECT gender,
+-- AVG(salary)
+-- FROM users
+-- GROUP BY gender;
+
+-- SELECT gender,
+-- COUNT(*) AS user_count
+-- FROM users
+-- GROUP BY gender;
+
+-- SELECT gender,
+-- SUM(salary)
+-- FROM users
+-- GROUP BY gender;
+
+-- SELECT gender,
+-- MIN(salary)
+-- FROM users
+-- GROUP BY gender;
+
+-- SELECT gender,
+-- MAX(salary)
+-- FROM users
+-- GROUP BY gender;
+
+-- SELECT gender,
+-- AVG(salary) AS avg_salary
+-- FROM users
+-- GROUP BY gender
+-- ORDER BY avg_salary DESC;
+
+-- SELECT salary, 
+-- COUNT(*) as users_count
+-- FROM users
+-- GROUP BY salary;
+
+-- SELECT gender,
+-- COUNT(*) as user_count
+-- FROM users
+-- GROUP BY gender
+-- HAVING user_count > 5;
+
+-- SELECT gender,
+-- AVG(salary) as avg_salary
+-- FROM users
+-- GROUP BY gender
+-- HAVING avg_salary > 65000;
+
+-- SELECT salary, 
+-- COUNT(*) AS user_count 
+-- FROM users
+-- GROUP BY salary
+-- HAVING user_count > 1;
+
+SELECT gender,
+COUNT(*) AS user_count, 
+AVG(salary) AS avg_salary
+FROM users
+GROUP BY gender
+HAVING user_count > 5 AND  avg_salary > 60000;
