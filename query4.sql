@@ -417,8 +417,33 @@
 -- IF (salary >= 60000, 'Eligible', 'Not Eligible') as eligibility
 -- FROM users;
 
-SELECT name, salary,
-IF(salary > (SELECT AVG(salary) FROM users), 'Above AVG', 'Below AVG') as level
-FROM users;
+-- SELECT name, salary,
+-- IF(salary > (SELECT AVG(salary) FROM users), 'Above AVG', 'Below AVG') as level
+-- FROM users;
 
+-- SELECT COUNT(*) AS total_users,
+--        SUM(salary) AS total_salary,
+--        AVG(salary) AS average_salary,
+--        MIN(salary) AS minimum_salary,
+--        MAX(salary) AS maximum_salary
+-- FROM users;
+
+-- SHOW CREATE TABLE addresses;
+
+-- SELECT users.name, addresses.city
+-- FROM users
+-- INNER JOIN addresses
+-- ON users.id = addresses.user_id;
+
+-- SELECT id, name FROM users
+-- UNION
+-- SELECT id, name FROM admin_users;
+
+SELECT name,
+'User' AS role
+FROM users
+UNION
+SELECT name,
+'Admin' AS role
+FROM admin_users;
 
