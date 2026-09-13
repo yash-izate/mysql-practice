@@ -372,25 +372,53 @@
 -- GROUP BY gender
 -- HAVING user_count > 5 AND  avg_salary > 60000;
 
-SELECT name, 
-LENGTH(name) as name_length
+-- SELECT name, 
+-- LENGTH(name) as name_length
+-- FROM users;
+
+-- SELECT name, 
+-- UPPER(name) as upper_case
+-- FROM users;
+
+-- SELECT name, 
+-- LOWER(name) as lower_case
+-- FROM users;
+
+-- SELECT name,
+-- CONCAT(name, ' <',email,'>') as user_contact
+-- FROM users;
+
+-- SELECT name, 
+-- UPPER(name) as upper_case,
+-- LOWER(name) as lower_case, 
+-- LENGTH(name) as name_length
+-- FROM users;
+
+-- SELECT name,
+-- YEAR(dob) as birth_year,
+-- MONTH(dob) as birth_month,
+-- DAY(dob) as birth_date,
+-- DAYNAME(dob) as birth_day,
+-- DATEDIFF(CURDATE(), dob) as number_days,
+-- timestampdiff(YEAR, dob, CURDATE()) as age
+-- FROM users;
+
+-- SELECT name,
+-- ROUND(salary, -3) as round,
+-- FLOOR(salary/1000)*1000 as floor,
+-- MOD(salary, 10000) as mod_sal
+-- FROM users;
+
+-- SELECT name, salary,
+-- IF(salary > 70000, 'HIGH', 'LOW') as amount
+-- FROM users;
+
+-- SELECT name, 
+-- IF (salary >= 60000, 'Eligible', 'Not Eligible') as eligibility
+-- FROM users;
+
+SELECT name, salary,
+IF(salary > (SELECT AVG(salary) FROM users), 'Above AVG', 'Below AVG') as level
 FROM users;
 
-SELECT name, 
-UPPER(name) as upper_case
-FROM users;
 
-SELECT name, 
-LOWER(name) as lower_case
-FROM users;
-
-SELECT name,
-CONCAT(name,'<',email,'>') as user_contact
-FROM users;
-
-
-SELECT name, 
-UPPER(name) as upper_case,
-LOWER(name) as lower_case, 
-LENGTH(name) as name_length
-FROM users;
